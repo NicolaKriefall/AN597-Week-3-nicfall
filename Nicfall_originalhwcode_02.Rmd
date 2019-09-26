@@ -5,8 +5,8 @@ date: "9/26/2019"
 output: html_document
 ---
 
-Notes on the hw subject:
-Poisson Distribution
+#Notes on the hw subject
+##Poisson Distribution
 The Poisson Distribution is often used to model open ended counts of independently occuring events, for example the number of cars that pass a traffic intersection over a given interval of time or the number of times a monkey scratches itself during a given observation interval. The probability mass function for the Poisson distribution is described by a single parameter, λ, where λ can be interpreted as the mean number of occurrences of the event in the given interval.
 
 Let’s use R to look at the probability mass functions for different values of λ:
@@ -60,15 +60,16 @@ pois
 
 Plot the simulated results using hist() and use xlim() to set the horizontal limits to be from 0 to 30. How does your histogram compare to the shape of the probability mass function you plotted above?
 ```{r}
-xlim(0,30)
-hist(pois)
+hist(pois,xlim=c(0,30))
 #The histogram above was more uniform/even/neat, which makes sense due to the variability of sampling. I was surprised that the peak of this histogram was 16 rather than 15. It was also interesting how there were no observations over 25, while the probability histogram above said there were some small chances of getting above 25. So even 104 observations wasn't enough to hit those small chance numbers. It looks like this histogram has more of a tail on the right (higher values) than the left (lower values). Overall, the bell shape is similar. 
 ```
 
 #Five Challenges Reflection
 
-1. Was a challenge to wrap my head around the fancy probability terminology (mass density probability etc. etc.), got there eventually.
-2. q vs. x is confusing for the poisson functions
-3. For the first hw question, it would have been easier to find the probability of the event happening up to 8 calls instead of over 8 calls using cumulative probability. So I was trying to find a complicated way to get the probability of this, before I realized it was just 1 - the easy probability.
+1. Was a challenge to wrap my head around the fancy probability terminology (mass density probability, lambda, etc. etc.), got there eventually.
+2. Kept getting q & x mixed up for the poisson functions
+3. For the first hw question, it would have been easier to find the probability of the event happening up to 8 calls instead of over 8 calls using cumulative probability. So I was trying to find a complicated way to get the probability of this, before I realized it was just 1 - the easy probability (if I'm even correct)
 4. I was also trying to write a complicated function for the last few hw questions before I googled & found there are random number generators for poisson distributions. 
-5. I do not fully understand what is happening with the automatic x axes that base R plots make, they suck.
+  4a. I *think* I understand set.seed, but not 100% sure
+5. I do not fully understand what is happening with the automatic x axes that base R plots make before customizations, they suck</br>
+  5a. why does ylim=0:1 work but xlim=0:30 doesn't work? 
